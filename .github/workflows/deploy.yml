@@ -35,7 +35,9 @@ jobs:
         run: npm run build
 
       - name: Preserve custom domain
-        run: cp CNAME dist/CNAME
+        run: |
+          cp CNAME dist/CNAME
+          touch dist/.nojekyll
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
