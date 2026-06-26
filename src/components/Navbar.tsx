@@ -1,12 +1,13 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
+import { copy, type Locale } from "../i18n";
 
 const navLinks = [
   ["apps", "/apps/"],
-  ["revit tools", "/revit-tools/"],
+  ["revit", "/revit-tools/"],
   ["learning", "/learning/"],
   ["support", "/support/"],
-];
+] as const;
 
 function BrandMark() {
   return (
@@ -35,8 +36,14 @@ function Hamburger({ open }: { open: boolean }) {
   );
 }
 
-export default function Navbar() {
+type NavbarProps = {
+  locale: Locale;
+  onToggleLocale: () => void;
+};
+
+export default function Navbar({ locale, onToggleLocale }: NavbarProps) {
   const [open, setOpen] = useState(false);
+  const text = copy[locale].nav;
 
   return (
     <header className="fixed left-0 top-0 z-50 w-full bg-gradient-to-b from-[#f1f1f1]/80 to-transparent py-6 backdrop-blur-[2px] md:py-10">
@@ -47,24 +54,34 @@ export default function Navbar() {
         </a>
 
         <nav className="col-span-6 hidden items-center justify-center gap-7 md:flex" aria-label="Main navigation">
-          {navLinks.map(([label, href]) => (
+          {navLinks.map(([key, href]) => (
             <a key={href} href={href} className="text-[0.78rem] font-semibold lowercase tracking-[-0.01em] text-zinc-700 transition-colors hover:text-black">
-              {label}
+              {text[key]}
             </a>
           ))}
         </nav>
 
         <div className="col-span-5 flex items-center justify-end gap-3 md:col-span-3">
           <a className="hidden text-[0.78rem] font-semibold lowercase text-zinc-700 transition-colors hover:text-black sm:inline-flex" href="/support/">
-            find help
+            {text.help}
           </a>
-          <a className="hidden rounded-full bg-[#1a1a1a] px-4 py-2 text-[0.8rem] font-semibold lowercase text-white transition-transform hover:-translate-y-0.5 sm:inline-flex" href="/revit-tools/">
-            get started <span className="ml-1">→</span>
+          <a className="hidden rounded-full bg-[#1a1a1a] px-4 py-2 text-[0.8rem] font-semibold lowercase text-white transition-transform hover:-translate-y-0.5 sm:inline-flex" href="/apps/">
+            {text.cta} <span className="ml-1">→</span>
           </a>
+          <button
+            className="hidden rounded-full border border-black/10 bg-white/45 px-3 py-2 text-[0.78rem] font-semibold lowercase text-zinc-700 transition-colors hover:text-black sm:inline-flex md:hidden"
+            type="button"
+            aria-label={text.toggle}
+            onClick={onToggleLocale}
+          >
+            <span className={locale === "es" ? "text-black" : "text-zinc-500"}>ES</span>
+            <span className="px-1 text-zinc-400">/</span>
+            <span className={locale === "en" ? "text-black" : "text-zinc-500"}>EN</span>
+          </button>
           <button
             className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white/50 md:hidden"
             type="button"
-            aria-label="Toggle navigation"
+            aria-label={text.menu}
             aria-expanded={open}
             onClick={() => setOpen((value) => !value)}
           >
@@ -83,11 +100,18 @@ export default function Navbar() {
             className="mx-6 mt-5 rounded-[24px] border border-black/10 bg-white/75 p-5 shadow-2xl shadow-black/10 backdrop-blur-xl md:hidden"
           >
             <nav className="grid gap-2" aria-label="Mobile navigation">
-              {navLinks.map(([label, href]) => (
+              {navLinks.map(([key, href]) => (
                 <a key={href} href={href} className="rounded-2xl px-3 py-3 font-display text-2xl font-semibold lowercase tracking-[-0.04em] text-[#1a1a1a]">
-                  {label}
+                  {text[key]}
                 </a>
               ))}
+              <button
+                className="mt-2 rounded-2xl bg-[#1a1a1a] px-3 py-3 text-left font-display text-2xl font-semibold lowercase tracking-[-0.04em] text-white"
+                type="button"
+                onClick={onToggleLocale}
+              >
+                {locale === "es" ? "switch to english" : "cambiar a espanol"}
+              </button>
             </nav>
           </motion.div>
         ) : null}

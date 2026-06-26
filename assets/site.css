@@ -579,6 +579,11 @@ footer p {
   font-size: 0.94rem;
 }
 
+.installer-note {
+  width: fit-content;
+  max-width: 100%;
+}
+
 .cards {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
 }
@@ -687,6 +692,39 @@ footer p {
   color: var(--muted-strong);
   font-weight: 760;
   text-underline-offset: 3px;
+}
+
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 8px 11px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.58);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1.2;
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.language-toggle .is-active {
+  color: var(--text);
+}
+
+.language-toggle .language-separator {
+  color: var(--muted);
+  opacity: 0.65;
+}
+
+.language-toggle:hover,
+.language-toggle:focus-visible {
+  color: var(--text);
+  border-color: var(--border-strong);
+  background: #ffffff;
 }
 
 @media (prefers-reduced-motion: reduce) {

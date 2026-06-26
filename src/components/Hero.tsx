@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { copy, type Locale } from "../i18n";
 
 const videoUrl =
   "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260603_132049_036591b8-6e92-4760-b94c-a7ea6eef315c.mp4";
@@ -19,7 +20,14 @@ function ArrowIcon() {
   );
 }
 
-export default function Hero() {
+type HeroProps = {
+  locale: Locale;
+  onToggleLocale: () => void;
+};
+
+export default function Hero({ locale, onToggleLocale }: HeroProps) {
+  const text = copy[locale].hero;
+
   return (
     <section className="relative flex min-h-[110vh] w-full flex-col items-center justify-start overflow-hidden bg-bg-base sm:min-h-[140vh]">
       <div className="pointer-events-none absolute left-0 top-[15vh] z-0 h-[95vh] w-full sm:top-[20vh] sm:h-[120vh]">
@@ -38,12 +46,12 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
             className="font-display text-[clamp(3.35rem,10vw,8.4rem)] font-semibold leading-[0.88] tracking-[-0.075em] text-[#8e8e8e]"
           >
-            <span className="text-[#1a1a1a]">pyMenvic offers</span> <span>tools</span>
+            <span className="text-[#1a1a1a]">{text.line1Strong}</span> <span>{text.line1Muted}</span>
             <br />
-            <span>and resources to help you manage</span>
+            <span>{text.line2}</span>
             <br />
             <span>
-              your <EyePill /> Revit workflows.
+              {text.line3Before} <EyePill /> {text.line3After}
             </span>
           </motion.h1>
 
@@ -51,30 +59,34 @@ export default function Hero() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="mt-9 flex w-full max-w-[520px] items-center rounded-[6px] border border-black/[0.05] bg-white p-1 pl-4 shadow-sm"
+            className="mt-9 w-full max-w-[560px]"
           >
-            <input
-              className="min-w-0 flex-1 bg-transparent text-sm font-medium text-zinc-900 outline-none placeholder:text-zinc-400"
-              placeholder="Ask about Revit tools, apps, or support..."
-              aria-label="Ask pyMenvic"
-            />
-            <a className="relative h-9 w-9 rounded-full bg-[#1a1a1a] text-white" href="/support/" aria-label="Open support">
-              <ArrowIcon />
-            </a>
+            <div className="flex items-center rounded-[6px] border border-black/[0.05] bg-white p-1 pl-4 shadow-sm">
+              <span className="min-w-0 flex-1 text-sm font-medium text-zinc-500">
+                {text.start}
+              </span>
+              <a className="relative h-9 w-9 rounded-full bg-[#1a1a1a] text-white" href="/apps/" aria-label={text.openApps}>
+                <ArrowIcon />
+              </a>
+            </div>
           </motion.div>
         </div>
       </div>
 
-      <a
-        className="absolute right-5 top-1/2 z-20 hidden -translate-y-1/2 rounded-full border border-white/50 bg-white/35 px-4 py-2 text-xs font-semibold lowercase text-[#1a1a1a] shadow-lg shadow-black/5 backdrop-blur-md md:block"
-        href="/support/"
+      <button
+        className="absolute right-5 top-1/2 z-20 hidden -translate-y-1/2 items-center gap-2 rounded-full border border-white/50 bg-white/35 px-4 py-2 text-xs font-semibold uppercase text-[#1a1a1a] shadow-lg shadow-black/5 backdrop-blur-md transition-colors hover:bg-white/60 md:flex"
+        type="button"
+        aria-label={copy[locale].nav.toggle}
+        onClick={onToggleLocale}
       >
-        es — en
-      </a>
+        <span className={locale === "es" ? "text-black" : "text-zinc-500"}>ES</span>
+        <span className="text-zinc-400">/</span>
+        <span className={locale === "en" ? "text-black" : "text-zinc-500"}>EN</span>
+      </button>
 
-      <span className="absolute bottom-8 left-8 z-20 text-xs font-semibold tracking-[-0.02em] text-[#1a1a1a] md:left-12 lg:left-20">2026</span>
+      <span className="absolute bottom-8 left-8 z-20 text-xs font-semibold tracking-[-0.02em] text-[#1a1a1a] md:left-12 lg:left-20">{text.year}</span>
       <span className="absolute bottom-8 right-8 z-20 text-xs font-semibold lowercase tracking-[-0.02em] text-[#1a1a1a] md:right-12 lg:right-20">
-        bim automation tools
+        {text.corner}
       </span>
     </section>
   );
