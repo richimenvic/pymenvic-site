@@ -7,56 +7,14 @@
   <meta property="og:title" content="pyMenvic | Menvic technical hub">
   <meta property="og:description" content="Revit automation, Menvic apps, support links, privacy pages, and learning resources in one public hub.">
   <title>pyMenvic | Menvic technical hub</title>
-  <link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
-  <a class="skip-link" href="#content">Skip to content</a>
-  <div id="root">
-    <main class="page" id="content">
-      <header class="topbar">
-        <a class="brand" href="/" aria-label="pyMenvic home">
-          <span class="brand-mark" aria-hidden="true"></span>
-          <span>pyMenvic</span>
-        </a>
-        <nav class="top-nav" aria-label="Main navigation">
-          <a class="nav-link" href="/apps/">Apps</a>
-          <a class="nav-link" href="/revit-tools/">Revit Tools</a>
-          <a class="nav-link" href="/learning/">Learning</a>
-          <a class="nav-link" href="/support/">Support</a>
-          <a class="nav-cta" href="/revit-tools/">Explore Revit Tools</a>
-        </nav>
-      </header>
-
-      <section class="hero" aria-labelledby="page-title">
-        <div class="hero-copy">
-          <p class="kicker">Menvic technical hub</p>
-          <h1 id="page-title">Apps, Revit tools, and support pages in one place.</h1>
-          <p class="subtitle">pyMenvic collects public material for Menvic software: pyRevit utilities, compact apps, support paths, privacy pages, and learning notes.</p>
-          <p class="hero-text">Revit production tools remain the technical core. Apps are documented here when they need public support, policy, or preview pages.</p>
-          <nav class="hero-actions" aria-label="Primary homepage links">
-            <a class="button" href="/revit-tools/">Explore Revit Tools</a>
-            <a class="button secondary" href="/apps/">View Apps</a>
-          </nav>
-        </div>
-
-        <aside class="hub-panel" aria-label="pyMenvic routes">
-          <strong>pyMenvic routes</strong>
-          <p>A compact directory for the public surfaces Menvic needs to keep clear and reachable.</p>
-          <div class="hub-map" aria-label="pyMenvic focus areas">
-            <div class="hub-map-item"><strong>Revit Tools</strong><small>pyRevit utilities, BIM checks, workflow support.</small></div>
-            <div class="hub-map-item"><strong>Apps</strong><small>Padel Score and selected Menvic app previews.</small></div>
-            <div class="hub-map-item"><strong>Support</strong><small>Contact, troubleshooting, and policy routes.</small></div>
-            <div class="hub-map-item"><strong>Learning</strong><small>Notes for Revit, automation, and practical workflows.</small></div>
-          </div>
-        </aside>
-      </section>
-    </main>
-  </div>
+  <div id="root"></div>
   <script>
     window.addEventListener("error", function (event) {
       document.documentElement.dataset.appError = event.message || "Script error";
     });
   </script>
-  <script type="module" src="/assets/home.bundle.js?v=20260626-react-local"></script>
+  <script type="module" src="/src/main.tsx"></script>
 </body>
 </html>
