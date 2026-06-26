@@ -237,8 +237,36 @@
       min-height: 350px;
     }
 
-    .watch-preview .app-screenshot {
-      max-width: 310px;
+    .watch-device {
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: min(100%, 330px);
+      aspect-ratio: 1;
+      filter: drop-shadow(0 26px 42px rgba(0, 0, 0, 0.42));
+    }
+
+    .watch-face {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: min(100%, 310px);
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 20px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.06), transparent 38%),
+        rgba(5, 8, 13, 0.68);
+      box-shadow:
+        inset 0 2px 3px rgba(255, 255, 255, 0.12),
+        0 18px 40px rgba(0, 0, 0, 0.26);
+    }
+
+    .watch-face .app-screenshot {
+      width: 100%;
+      max-width: none;
+      border-radius: 14px;
     }
 
     .section { padding-top: 28px; }
@@ -277,23 +305,6 @@
       font-weight: 950;
     }
 
-    .screen-card {
-      overflow: hidden;
-      padding: 16px;
-    }
-
-    .screenshot-placeholder {
-      display: grid;
-      place-items: center;
-      min-height: 300px;
-      border: 1px dashed rgba(255, 255, 255, 0.24);
-      border-radius: 14px;
-      background: rgba(7, 9, 20, 0.5);
-      color: var(--muted-strong);
-      font-weight: 900;
-      text-align: center;
-    }
-
     .app-screenshot {
       display: block;
       width: 100%;
@@ -304,8 +315,119 @@
       box-shadow: 0 16px 36px rgba(0, 0, 0, 0.24);
     }
 
-    .screen-card h3 {
-      margin-top: 14px;
+    .screens {
+      perspective: 1400px;
+    }
+
+    .screen-card {
+      min-height: 420px;
+      padding: 0;
+      background: transparent;
+      box-shadow: none;
+      perspective: 1200px;
+      outline: none;
+    }
+
+    .screen-card:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 5px;
+    }
+
+    .flip-card {
+      position: relative;
+      width: 100%;
+      min-height: 420px;
+      transition: transform 680ms cubic-bezier(0.22, 1, 0.36, 1);
+      transform-style: preserve-3d;
+    }
+
+    .screen-card:hover .flip-card,
+    .screen-card:focus-within .flip-card,
+    .screen-card:focus .flip-card {
+      transform: rotateY(180deg);
+    }
+
+    .screen-face {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      min-height: 420px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.045), transparent 34%),
+        var(--surface-strong);
+      backface-visibility: hidden;
+      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.22);
+    }
+
+    .screen-back {
+      align-content: space-between;
+      justify-items: start;
+      transform: rotateY(180deg);
+      background:
+        radial-gradient(circle at 18% 0%, rgba(244, 178, 106, 0.14), transparent 34%),
+        linear-gradient(145deg, rgba(125, 211, 252, 0.1), rgba(16, 24, 32, 0.96));
+    }
+
+    .screen-watch {
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: min(100%, 245px);
+    }
+
+    .screen-watch-face {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: 100%;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 18px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.055), transparent 36%),
+        rgba(5, 8, 13, 0.62);
+      box-shadow:
+        inset 0 2px 3px rgba(255, 255, 255, 0.12),
+        0 14px 30px rgba(0, 0, 0, 0.24);
+    }
+
+    .screen-watch-face .app-screenshot {
+      border-radius: 14px;
+    }
+
+    .screen-front h3 {
+      margin-top: 18px;
+      text-align: center;
+    }
+
+    .screen-back h3 {
+      max-width: 13rem;
+      font-size: clamp(1.35rem, 3vw, 1.8rem);
+    }
+
+    .screen-back .card-description {
+      max-width: 24ch;
+      color: var(--muted-strong);
+      font-size: 1.02rem;
+    }
+
+    .flip-hint {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 20px;
+      padding: 7px 10px;
+      border: 1px solid rgba(125, 211, 252, 0.28);
+      border-radius: 999px;
+      color: var(--accent);
+      background: rgba(125, 211, 252, 0.075);
+      font-size: 0.78rem;
+      font-weight: 900;
     }
 
     .step { padding: 20px; }
@@ -355,6 +477,24 @@
       .hero-actions { align-items: flex-start; flex-direction: column; }
       .button { width: 100%; }
       .screens { grid-template-columns: 1fr; }
+      .screen-card, .flip-card, .screen-face { min-height: 390px; }
+      .screen-watch { width: min(100%, 215px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .flip-card {
+        transition: none;
+      }
+
+      .screen-card:hover .flip-card,
+      .screen-card:focus-within .flip-card,
+      .screen-card:focus .flip-card {
+        transform: none;
+      }
+
+      .screen-back {
+        display: none;
+      }
     }
 
   </style>
@@ -389,7 +529,11 @@
       </div>
 
       <aside class="watch-preview" aria-label="Padel Score watch preview">
-        <img class="app-screenshot" src="/assets/apps/padel-score/03-scoring.webp" alt="Padel Score live scoring screen on Huawei Watch">
+        <div class="watch-device" aria-hidden="true">
+          <div class="watch-face">
+            <img class="app-screenshot" src="/assets/apps/padel-score/03-scoring.webp" alt="">
+          </div>
+        </div>
       </aside>
     </section>
 
@@ -397,40 +541,162 @@
       <div class="section-heading">
         <div>
           <h2 id="screenshots-title">Screenshots</h2>
-          <p class="section-intro">Real app screens from Padel Score running on a Huawei Watch-style preview.</p>
+          <p class="section-intro">Real app screens in interactive cards. Hover or focus a card to flip it and read what that screen does.</p>
         </div>
       </div>
 
-      <div class="screens">
-        <article class="screen-card">
-          <img class="app-screenshot" src="/assets/apps/padel-score/01-home.webp" alt="Padel Score home screen on Huawei Watch">
-          <h3>Start from the watch</h3>
-          <p class="card-description">Open the app, start a match, check history, or adjust match settings.</p>
+      <div class="screens" aria-label="Interactive Padel Score screen cards">
+        <article class="screen-card" tabindex="0" aria-label="Start from the watch. Open the app, start a match, check history, or adjust match settings.">
+          <div class="flip-card">
+            <div class="screen-face screen-front">
+              <div class="screen-watch">
+                <div class="screen-watch-face">
+                  <img class="app-screenshot" src="/assets/apps/padel-score/01-home.webp" alt="Padel Score home screen on Huawei Watch">
+                </div>
+              </div>
+              <h3>Start from the watch</h3>
+            </div>
+            <div class="screen-face screen-back" aria-hidden="true">
+              <div>
+                <h3>Start from the watch</h3>
+                <p class="card-description">Open the app, start a match, check history, or adjust match settings.</p>
+              </div>
+              <span class="flip-hint">Hover to return</span>
+            </div>
+          </div>
         </article>
-        <article class="screen-card">
-          <img class="app-screenshot" src="/assets/apps/padel-score/03-scoring.webp" alt="Padel Score live scoring screen on Huawei Watch">
-          <h3>Live scoring</h3>
-          <p class="card-description">Tap the team that wins the point and follow games, sets, time, and serving indicator.</p>
+        <article class="screen-card" tabindex="0" aria-label="Live scoring. Tap the team that wins the point and follow games, sets, time, and serving indicator.">
+          <div class="flip-card">
+            <div class="screen-face screen-front">
+              <div class="screen-watch">
+                <div class="screen-watch-face">
+                  <img class="app-screenshot" src="/assets/apps/padel-score/03-scoring.webp" alt="Padel Score live scoring screen on Huawei Watch">
+                </div>
+              </div>
+              <h3>Live scoring</h3>
+            </div>
+            <div class="screen-face screen-back" aria-hidden="true">
+              <div>
+                <h3>Live scoring</h3>
+                <p class="card-description">Tap the team that wins the point and follow games, sets, time, and serving indicator.</p>
+              </div>
+              <span class="flip-hint">Hover to return</span>
+            </div>
+          </div>
         </article>
-        <article class="screen-card">
-          <img class="app-screenshot" src="/assets/apps/padel-score/08-settings.webp" alt="Padel Score settings screen on Huawei Watch">
-          <h3>Match settings</h3>
-          <p class="card-description">Choose 40-40 behavior, 6-6 behavior, and vibration preferences.</p>
+        <article class="screen-card" tabindex="0" aria-label="Match settings. Choose 40-40 behavior, 6-6 behavior, and vibration preferences.">
+          <div class="flip-card">
+            <div class="screen-face screen-front">
+              <div class="screen-watch">
+                <div class="screen-watch-face">
+                  <img class="app-screenshot" src="/assets/apps/padel-score/08-settings.webp" alt="Padel Score settings screen on Huawei Watch">
+                </div>
+              </div>
+              <h3>Match settings</h3>
+            </div>
+            <div class="screen-face screen-back" aria-hidden="true">
+              <div>
+                <h3>Match settings</h3>
+                <p class="card-description">Choose 40-40 behavior, 6-6 behavior, and vibration preferences.</p>
+              </div>
+              <span class="flip-hint">Hover to return</span>
+            </div>
+          </div>
         </article>
-        <article class="screen-card">
-          <img class="app-screenshot" src="/assets/apps/padel-score/02-serve.webp" alt="Padel Score first server selection screen on Huawei Watch">
-          <h3>Serve selection</h3>
-          <p class="card-description">Select who serves first before the match starts.</p>
+        <article class="screen-card" tabindex="0" aria-label="Serve selection. Select who serves first before the match starts.">
+          <div class="flip-card">
+            <div class="screen-face screen-front">
+              <div class="screen-watch">
+                <div class="screen-watch-face">
+                  <img class="app-screenshot" src="/assets/apps/padel-score/02-serve.webp" alt="Padel Score first server selection screen on Huawei Watch">
+                </div>
+              </div>
+              <h3>Serve selection</h3>
+            </div>
+            <div class="screen-face screen-back" aria-hidden="true">
+              <div>
+                <h3>Serve selection</h3>
+                <p class="card-description">Select who serves first before the match starts.</p>
+              </div>
+              <span class="flip-hint">Hover to return</span>
+            </div>
+          </div>
         </article>
-        <article class="screen-card">
-          <img class="app-screenshot" src="/assets/apps/padel-score/07-history.webp" alt="Padel Score local match history screen on Huawei Watch">
-          <h3>Local history</h3>
-          <p class="card-description">Review recent matches stored locally on the watch.</p>
+        <article class="screen-card" tabindex="0" aria-label="Deuce mode. Follow advantage or golden point moments without reading dense controls.">
+          <div class="flip-card">
+            <div class="screen-face screen-front">
+              <div class="screen-watch">
+                <div class="screen-watch-face">
+                  <img class="app-screenshot" src="/assets/apps/padel-score/04-deuce.webp" alt="Padel Score deuce screen on Huawei Watch">
+                </div>
+              </div>
+              <h3>Deuce moments</h3>
+            </div>
+            <div class="screen-face screen-back" aria-hidden="true">
+              <div>
+                <h3>Deuce moments</h3>
+                <p class="card-description">Follow advantage or golden point situations without dense controls during play.</p>
+              </div>
+              <span class="flip-hint">Hover to return</span>
+            </div>
+          </div>
         </article>
-        <article class="screen-card">
-          <img class="app-screenshot" src="/assets/apps/padel-score/06-final.webp" alt="Padel Score final result screen on Huawei Watch">
-          <h3>Final result</h3>
-          <p class="card-description">Finish the match and see the final sets summary clearly.</p>
+        <article class="screen-card" tabindex="0" aria-label="Third set. Keep the deciding set clear when the match gets tight.">
+          <div class="flip-card">
+            <div class="screen-face screen-front">
+              <div class="screen-watch">
+                <div class="screen-watch-face">
+                  <img class="app-screenshot" src="/assets/apps/padel-score/05-third-set.webp" alt="Padel Score third set screen on Huawei Watch">
+                </div>
+              </div>
+              <h3>Deciding set</h3>
+            </div>
+            <div class="screen-face screen-back" aria-hidden="true">
+              <div>
+                <h3>Deciding set</h3>
+                <p class="card-description">Keep the final set readable when the match is tight and every point matters.</p>
+              </div>
+              <span class="flip-hint">Hover to return</span>
+            </div>
+          </div>
+        </article>
+        <article class="screen-card" tabindex="0" aria-label="Local history. Review recent matches stored locally on the watch.">
+          <div class="flip-card">
+            <div class="screen-face screen-front">
+              <div class="screen-watch">
+                <div class="screen-watch-face">
+                  <img class="app-screenshot" src="/assets/apps/padel-score/07-history.webp" alt="Padel Score local match history screen on Huawei Watch">
+                </div>
+              </div>
+              <h3>Local history</h3>
+            </div>
+            <div class="screen-face screen-back" aria-hidden="true">
+              <div>
+                <h3>Local history</h3>
+                <p class="card-description">Review recent matches stored locally on the watch.</p>
+              </div>
+              <span class="flip-hint">Hover to return</span>
+            </div>
+          </div>
+        </article>
+        <article class="screen-card" tabindex="0" aria-label="Final result. Finish the match and see the final sets summary clearly.">
+          <div class="flip-card">
+            <div class="screen-face screen-front">
+              <div class="screen-watch">
+                <div class="screen-watch-face">
+                  <img class="app-screenshot" src="/assets/apps/padel-score/06-final.webp" alt="Padel Score final result screen on Huawei Watch">
+                </div>
+              </div>
+              <h3>Final result</h3>
+            </div>
+            <div class="screen-face screen-back" aria-hidden="true">
+              <div>
+                <h3>Final result</h3>
+                <p class="card-description">Finish the match and see the final sets summary clearly.</p>
+              </div>
+              <span class="flip-hint">Hover to return</span>
+            </div>
+          </div>
         </article>
       </div>
     </section>

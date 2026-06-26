@@ -150,15 +150,27 @@ button:focus-visible {
   justify-content: flex-end;
 }
 
-.nav-link {
+.nav-link,
+.nav-cta {
   padding: 7px 10px;
   border: 1px solid transparent;
   border-radius: 8px;
-  color: var(--muted);
   font-size: 0.94rem;
   font-weight: 760;
   text-decoration: none;
   transition: background 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.nav-link {
+  color: var(--muted);
+}
+
+.nav-cta {
+  margin-left: 4px;
+  border-color: rgba(120, 198, 231, 0.38);
+  color: #061017;
+  background: var(--accent);
+  font-weight: 820;
 }
 
 .nav-link:hover,
@@ -169,7 +181,13 @@ button:focus-visible {
   background: rgba(255, 255, 255, 0.045);
 }
 
+.nav-cta:hover,
+.nav-cta:focus-visible {
+  background: #9bd9f0;
+}
+
 .nav-link:active,
+.nav-cta:active,
 .button:active {
   transform: translateY(1px);
 }
@@ -481,6 +499,27 @@ footer p {
   background: linear-gradient(135deg, rgba(120, 198, 231, 0.08), rgba(255, 255, 255, 0.025));
 }
 
+.technical-core,
+.final-cta {
+  position: relative;
+  overflow: hidden;
+}
+
+.technical-core::before,
+.final-cta::before {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(110deg, rgba(120, 198, 231, 0.12), transparent 42%);
+  opacity: 0.75;
+}
+
+.technical-core > *,
+.final-cta > * {
+  position: relative;
+}
+
 .small-note {
   margin: 16px 0 0;
   padding: 12px 14px;
@@ -556,6 +595,25 @@ footer p {
   color: var(--text);
 }
 
+.final-cta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+  padding: clamp(24px, 4vw, 36px);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  background: rgba(16, 24, 32, 0.72);
+}
+
+.final-cta h2 {
+  max-width: 720px;
+}
+
+.final-cta p {
+  max-width: 72ch;
+}
+
 .contact-link {
   color: var(--accent-ink);
   font-weight: 800;
@@ -606,7 +664,8 @@ footer p {
 @media (max-width: 900px) {
   .hero,
   .app-grid,
-  .feature {
+  .feature,
+  .final-cta {
     grid-template-columns: 1fr;
   }
 
@@ -624,6 +683,10 @@ footer p {
 
   .top-nav {
     justify-content: flex-start;
+  }
+
+  .nav-cta {
+    margin-left: 0;
   }
 
   .identity-grid,
@@ -647,11 +710,15 @@ footer p {
   }
 
   .hero-actions,
-  .links {
+  .links,
+  .top-nav {
     flex-direction: column;
+    align-items: stretch;
   }
 
-  .button {
+  .button,
+  .nav-link,
+  .nav-cta {
     width: 100%;
   }
 }
