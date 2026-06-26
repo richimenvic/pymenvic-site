@@ -34,6 +34,13 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Verify production entrypoint
+        run: |
+          if grep -R "/src/main" dist/index.html; then
+            echo "dist/index.html must not reference Vite source files."
+            exit 1
+          fi
+
       - name: Preserve custom domain
         run: |
           cp CNAME dist/CNAME
