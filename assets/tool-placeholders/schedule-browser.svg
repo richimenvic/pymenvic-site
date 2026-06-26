@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title desc">
+  <title id="title">Schedule Browser placeholder</title>
+  <desc id="desc">Generic UI placeholder, not a real screenshot.</desc>
+  <rect width="640" height="400" fill="#eef4ff"/>
+  <rect x="46" y="42" width="548" height="316" rx="20" fill="#fff" stroke="#c9d4e2"/>
+  <rect x="74" y="74" width="492" height="40" rx="10" fill="#111827"/>
+  <text x="96" y="100" fill="#fff" font-family="Inter,Arial" font-size="18" font-weight="700">Schedule Browser</text>
+  <g fill="#e8f0ff" stroke="#c9d4e2"><rect x="74" y="142" width="492" height="34" rx="6"/><rect x="74" y="190" width="492" height="34" rx="6"/><rect x="74" y="238" width="492" height="34" rx="6"/><rect x="74" y="286" width="492" height="34" rx="6"/></g>
+  <g fill="#2563eb"><circle cx="98" cy="159" r="5"/><circle cx="98" cy="207" r="5"/><circle cx="98" cy="255" r="5"/><circle cx="98" cy="303" r="5"/></g>
+  <text x="458" y="324" fill="#1740a3" font-family="Inter,Arial" font-size="38" font-weight="800">SB</text>
+</svg>

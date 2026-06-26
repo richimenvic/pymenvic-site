@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title desc">
+  <title id="title">Workset Mapping Manager placeholder</title>
+  <desc id="desc">Generic UI placeholder, not a real screenshot.</desc>
+  <rect width="640" height="400" fill="#eef4ff"/>
+  <rect x="52" y="50" width="536" height="300" rx="20" fill="#fff" stroke="#c9d4e2"/>
+  <g fill="#f4f7fb" stroke="#dfe6ee"><rect x="86" y="90" width="156" height="58" rx="12"/><rect x="398" y="90" width="156" height="58" rx="12"/><rect x="86" y="178" width="156" height="58" rx="12"/><rect x="398" y="178" width="156" height="58" rx="12"/><rect x="86" y="266" width="156" height="58" rx="12"/><rect x="398" y="266" width="156" height="58" rx="12"/></g>
+  <path d="M252 119h132M252 207h132M252 295h132" stroke="#2563eb" stroke-width="10" stroke-linecap="round"/>
+  <path d="m374 103 18 16-18 16M374 191l18 16-18 16M374 279l18 16-18 16" fill="none" stroke="#2563eb" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="432" y="324" fill="#1740a3" font-family="Inter,Arial" font-size="38" font-weight="800">MAP</text>
+</svg>

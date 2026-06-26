@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title desc">
+  <title id="title">Link Workset Manager placeholder</title>
+  <desc id="desc">Generic UI placeholder, not a real screenshot.</desc>
+  <rect width="640" height="400" fill="#eef4ff"/>
+  <rect x="50" y="52" width="540" height="296" rx="20" fill="#fff" stroke="#c9d4e2"/>
+  <rect x="86" y="92" width="176" height="208" rx="14" fill="#f4f7fb" stroke="#dfe6ee"/>
+  <rect x="378" y="92" width="176" height="208" rx="14" fill="#f4f7fb" stroke="#dfe6ee"/>
+  <path d="M266 156h82M266 244h82" stroke="#2563eb" stroke-width="12" stroke-linecap="round"/>
+  <path d="m332 136 28 20-28 20M332 224l28 20-28 20" fill="none" stroke="#2563eb" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="112" y="184" fill="#111827" font-family="Inter,Arial" font-size="22" font-weight="800">Links</text>
+  <text x="408" y="184" fill="#111827" font-family="Inter,Arial" font-size="22" font-weight="800">Worksets</text>
+  <text x="432" y="316" fill="#1740a3" font-family="Inter,Arial" font-size="38" font-weight="800">LWM</text>
+</svg>

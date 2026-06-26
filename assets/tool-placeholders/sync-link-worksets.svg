@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title desc">
+  <title id="title">Sync Link Worksets placeholder</title>
+  <desc id="desc">Generic UI placeholder, not a real screenshot.</desc>
+  <rect width="640" height="400" fill="#eef4ff"/>
+  <rect x="54" y="48" width="532" height="304" rx="20" fill="#fff" stroke="#c9d4e2"/>
+  <circle cx="218" cy="190" r="70" fill="#f4f7fb" stroke="#c9d4e2"/>
+  <circle cx="422" cy="190" r="70" fill="#f4f7fb" stroke="#c9d4e2"/>
+  <path d="M302 154c26-28 68-28 94 0M338 226c-26 28-68 28-94 0" fill="none" stroke="#2563eb" stroke-width="12" stroke-linecap="round"/>
+  <path d="m396 154-2 42-36-18M244 226l2-42 36 18" fill="none" stroke="#2563eb" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="180" y="198" fill="#111827" font-family="Inter,Arial" font-size="22" font-weight="800">Link</text>
+  <text x="386" y="198" fill="#111827" font-family="Inter,Arial" font-size="22" font-weight="800">Host</text>
+  <text x="438" y="318" fill="#1740a3" font-family="Inter,Arial" font-size="38" font-weight="800">SYNC</text>
+</svg>

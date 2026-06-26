@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title desc">
+  <title id="title">Workset Inspector placeholder</title>
+  <desc id="desc">Generic UI placeholder, not a real screenshot.</desc>
+  <rect width="640" height="400" fill="#eef4ff"/>
+  <rect x="54" y="48" width="532" height="304" rx="20" fill="#fff" stroke="#c9d4e2"/>
+  <rect x="92" y="92" width="260" height="208" rx="14" fill="#f4f7fb" stroke="#dfe6ee"/>
+  <path d="M124 132h168M124 174h116M124 216h168M124 258h138" stroke="#2563eb" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="438" cy="178" r="68" fill="#e8f0ff" stroke="#c9d4e2"/>
+  <path d="m486 226 48 48" stroke="#111827" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="438" cy="178" r="34" fill="#fff" stroke="#2563eb" stroke-width="10"/>
+  <text x="414" y="322" fill="#1740a3" font-family="Inter,Arial" font-size="38" font-weight="800">INS</text>
+</svg>

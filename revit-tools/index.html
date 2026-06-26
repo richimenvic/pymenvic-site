@@ -58,37 +58,164 @@
       </aside>
     </section>
 
-    <section class="section" id="scope" aria-labelledby="scope-title">
+    <section class="section tools-showcase-section" id="tools-showcase" aria-labelledby="tools-showcase-title">
       <div class="section-heading">
-        <h2 id="scope-title">Planned tool areas</h2>
-        <p class="section-intro">pyMenvic for Revit is treated as the technical center of the site. The public route will focus on practical utilities rather than broad promotional claims.</p>
+        <h2 id="tools-showcase-title">Revit tools showcase</h2>
+        <p class="section-intro">A focused look at the main pyMenvic utilities for Revit production, coordination, worksets, documentation, and model setup.</p>
       </div>
 
-      <div class="identity-grid" aria-label="Planned Revit tool areas">
-        <article class="identity-card">
-          <span class="identity-label">Automation</span>
-          <div>
-            <h3>pyRevit productivity helpers</h3>
-            <p class="card-description">Small utilities for repetitive production work, batch cleanup, view and sheet tasks, and model documentation support.</p>
+      <div class="tool-grid" aria-label="pyMenvic Revit tool cards">
+        <article class="tool-card" data-tool-card>
+          <img class="tool-preview" src="/assets/tool-placeholders/schedule-browser.svg" alt="Placeholder UI preview for Schedule Browser" loading="lazy">
+          <div class="tool-card-body">
+            <div class="tool-card-meta">
+              <span class="tool-category">Schedules</span>
+              <span class="tool-status">Screenshot pending</span>
+            </div>
+            <h3>Schedule Browser</h3>
+            <p class="card-description">Browse Revit schedules, inspect fields, understand editable and non-editable data, and export schedule data and schema to Excel for review.</p>
+            <button class="tool-detail-button" type="button" aria-expanded="false" aria-controls="tool-schedule-browser" data-tool-toggle>View details</button>
+            <div class="tool-details" id="tool-schedule-browser" hidden>
+              <p>Helps teams review schedule structure before exporting or coordinating model data. Useful for QA, schema checks, and understanding which schedule values can be edited.</p>
+              <button class="tool-close-button" type="button" data-tool-close>Close</button>
+            </div>
           </div>
-          <ul class="identity-list">
-            <li>Reduce repeated manual operations.</li>
-            <li>Keep workflows close to Revit production needs.</li>
-            <li>Document assumptions before publishing a tool.</li>
-          </ul>
         </article>
 
-        <article class="identity-card">
-          <span class="identity-label">QA / standards</span>
-          <div>
-            <h3>Model checks and office standards</h3>
-            <p class="card-description">Guidance and utilities for naming, auditing, quality review, model hygiene, and repeatable team standards.</p>
+        <article class="tool-card" data-tool-card>
+          <img class="tool-preview" src="/assets/tool-placeholders/print-sheets.svg" alt="Placeholder UI preview for Print Sheets / Revision to PDF" loading="lazy">
+          <div class="tool-card-body">
+            <div class="tool-card-meta">
+              <span class="tool-category">Publishing</span>
+              <span class="tool-status">Screenshot pending</span>
+            </div>
+            <h3>Print Sheets / Revision to PDF</h3>
+            <p class="card-description">Prepare sheet sets for printing and export. Organize sheets by discipline, manage revision-based naming, and support PDF, DWG and DXF export workflows.</p>
+            <button class="tool-detail-button" type="button" aria-expanded="false" aria-controls="tool-print-sheets" data-tool-toggle>View details</button>
+            <div class="tool-details" id="tool-print-sheets" hidden>
+              <p>Supports controlled sheet output workflows where naming, revision context, and export type matter for project delivery.</p>
+              <button class="tool-close-button" type="button" data-tool-close>Close</button>
+            </div>
           </div>
-          <ul class="identity-list">
-            <li>Support consistent BIM deliverables.</li>
-            <li>Make checks understandable before they are automated.</li>
-            <li>Separate stable tools from experimental notes.</li>
-          </ul>
+        </article>
+
+        <article class="tool-card" data-tool-card>
+          <img class="tool-preview" src="/assets/tool-placeholders/link-workset-manager.svg" alt="Placeholder UI preview for Link Workset Manager" loading="lazy">
+          <div class="tool-card-body">
+            <div class="tool-card-meta">
+              <span class="tool-category">Coordination</span>
+              <span class="tool-status">Screenshot pending</span>
+            </div>
+            <h3>Link Workset Manager</h3>
+            <p class="card-description">Review Revit links and assign instance/type worksets using discipline-based suggestions to keep linked models organized.</p>
+            <button class="tool-detail-button" type="button" aria-expanded="false" aria-controls="tool-link-workset-manager" data-tool-toggle>View details</button>
+            <div class="tool-details" id="tool-link-workset-manager" hidden>
+              <p>Designed for link-heavy projects where consistent host workset assignment keeps coordination models easier to manage.</p>
+              <button class="tool-close-button" type="button" data-tool-close>Close</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="tool-card" data-tool-card>
+          <img class="tool-preview" src="/assets/tool-placeholders/sync-link-worksets.svg" alt="Placeholder UI preview for Sync Link Worksets" loading="lazy">
+          <div class="tool-card-body">
+            <div class="tool-card-meta">
+              <span class="tool-category">Worksets</span>
+              <span class="tool-status">Screenshot pending</span>
+            </div>
+            <h3>Sync Link Worksets</h3>
+            <p class="card-description">Scan loaded Revit links, detect worksets used by linked models, identify missing host worksets, and create required worksets when needed.</p>
+            <button class="tool-detail-button" type="button" aria-expanded="false" aria-controls="tool-sync-link-worksets" data-tool-toggle>View details</button>
+            <div class="tool-details" id="tool-sync-link-worksets" hidden>
+              <p>Useful when linked models introduce workset structures that should be mirrored or supported in the active host project.</p>
+              <button class="tool-close-button" type="button" data-tool-close>Close</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="tool-card" data-tool-card>
+          <img class="tool-preview" src="/assets/tool-placeholders/workset-standardizer.svg" alt="Placeholder UI preview for Workset Standardizer" loading="lazy">
+          <div class="tool-card-body">
+            <div class="tool-card-meta">
+              <span class="tool-category">Standards</span>
+              <span class="tool-status">Screenshot pending</span>
+            </div>
+            <h3>Workset Standardizer</h3>
+            <p class="card-description">Apply office workset naming standards across disciplines such as Architecture, Structure, Mechanical, Electrical, Plumbing, Site, Low Power and Rebars.</p>
+            <button class="tool-detail-button" type="button" aria-expanded="false" aria-controls="tool-workset-standardizer" data-tool-toggle>View details</button>
+            <div class="tool-details" id="tool-workset-standardizer" hidden>
+              <p>Creates a repeatable baseline for project worksets so teams start from familiar discipline naming conventions.</p>
+              <button class="tool-close-button" type="button" data-tool-close>Close</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="tool-card" data-tool-card>
+          <img class="tool-preview" src="/assets/tool-placeholders/workset-mapping-manager.svg" alt="Placeholder UI preview for Workset Mapping Manager" loading="lazy">
+          <div class="tool-card-body">
+            <div class="tool-card-meta">
+              <span class="tool-category">Mapping</span>
+              <span class="tool-status">Screenshot pending</span>
+            </div>
+            <h3>Workset Mapping Manager</h3>
+            <p class="card-description">Manage mapping rules between detected model content, disciplines and target worksets for consistent workset assignment.</p>
+            <button class="tool-detail-button" type="button" aria-expanded="false" aria-controls="tool-workset-mapping-manager" data-tool-toggle>View details</button>
+            <div class="tool-details" id="tool-workset-mapping-manager" hidden>
+              <p>Provides a place to maintain mapping logic so model content can be routed to predictable worksets across projects.</p>
+              <button class="tool-close-button" type="button" data-tool-close>Close</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="tool-card" data-tool-card>
+          <img class="tool-preview" src="/assets/tool-placeholders/workset-inspector.svg" alt="Placeholder UI preview for Workset Inspector" loading="lazy">
+          <div class="tool-card-body">
+            <div class="tool-card-meta">
+              <span class="tool-category">Audit</span>
+              <span class="tool-status">Screenshot pending</span>
+            </div>
+            <h3>Workset Inspector</h3>
+            <p class="card-description">Audit coordination elements such as levels, grids and scope boxes to verify correct workset assignment.</p>
+            <button class="tool-detail-button" type="button" aria-expanded="false" aria-controls="tool-workset-inspector" data-tool-toggle>View details</button>
+            <div class="tool-details" id="tool-workset-inspector" hidden>
+              <p>Targets core coordination elements that often need consistent ownership and visibility behavior in shared models.</p>
+              <button class="tool-close-button" type="button" data-tool-close>Close</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="tool-card" data-tool-card>
+          <img class="tool-preview" src="/assets/tool-placeholders/view-type-manager.svg" alt="Placeholder UI preview for View Type Manager" loading="lazy">
+          <div class="tool-card-body">
+            <div class="tool-card-meta">
+              <span class="tool-category">Views</span>
+              <span class="tool-status">Screenshot pending</span>
+            </div>
+            <h3>View Type Manager</h3>
+            <p class="card-description">Review and organize Revit view types to support cleaner project setup, naming consistency and model management.</p>
+            <button class="tool-detail-button" type="button" aria-expanded="false" aria-controls="tool-view-type-manager" data-tool-toggle>View details</button>
+            <div class="tool-details" id="tool-view-type-manager" hidden>
+              <p>Helps keep view type structure understandable as projects grow and teams coordinate naming or setup standards.</p>
+              <button class="tool-close-button" type="button" data-tool-close>Close</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="tool-card" data-tool-card>
+          <img class="tool-preview" src="/assets/tool-placeholders/detail-family-browser.svg" alt="Placeholder UI preview for Detail Family Browser" loading="lazy">
+          <div class="tool-card-body">
+            <div class="tool-card-meta">
+              <span class="tool-category">Documentation</span>
+              <span class="tool-status">Screenshot pending</span>
+            </div>
+            <h3>Detail Family Browser</h3>
+            <p class="card-description">Browse detail families loaded in the project, preview drafting components and support faster detail documentation workflows.</p>
+            <button class="tool-detail-button" type="button" aria-expanded="false" aria-controls="tool-detail-family-browser" data-tool-toggle>View details</button>
+            <div class="tool-details" id="tool-detail-family-browser" hidden>
+              <p>Supports documentation teams that need to locate and reuse drafting components without hunting through project content manually.</p>
+              <button class="tool-close-button" type="button" data-tool-close>Close</button>
+            </div>
+          </div>
         </article>
       </div>
     </section>
@@ -123,5 +250,6 @@
     </footer>
   </main>
   <script src="/assets/site-i18n.js"></script>
+  <script src="/assets/revit-tools.js"></script>
 </body>
 </html>
