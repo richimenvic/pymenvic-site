@@ -99,7 +99,7 @@ export default function Navbar({ locale, onToggleLocale }: NavbarProps) {
               type="button"
               onClick={onToggleLocale}
             >
-              {locale === "es" ? "switch to english" : "cambiar a espanol"}
+              {locale === "es" ? "cambiar a inglés" : "switch to Spanish"}
             </button>
           </nav>
         </div>

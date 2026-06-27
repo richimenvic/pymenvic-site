@@ -1071,6 +1071,15 @@ footer p {
   transform: rotateY(180deg);
 }
 
+.screen-card:has(.screen-front img:hover) .flip-card,
+.screen-card:has(.screen-front img:focus) .flip-card,
+.screen-card:has(.screen-front img:active) .flip-card,
+.screen-card:has(.zoom-trigger:hover) .flip-card,
+.screen-card:has(.zoom-trigger:focus) .flip-card,
+.screen-card:has(.zoom-trigger:active) .flip-card {
+  transform: none;
+}
+
 .screen-face {
   position: absolute;
   inset: 0;

@@ -5603,34 +5603,34 @@ const $f = /* @__PURE__ */ Ia(Hf), Tl = {
       learning: "aprendizaje",
       support: "soporte",
       help: "ayuda",
-      cta: "ver tools",
-      toggle: "Cambiar idioma a ingles",
-      menu: "Abrir navegacion"
+      cta: "ver herramientas",
+      toggle: "Cambiar idioma a inglés",
+      menu: "Abrir navegación"
     },
     hero: {
       line1Strong: "pyMenvic Revit Tools",
       line1Muted: "lidera",
-      line2: "un portfolio tecnico de",
+      line2: "un portfolio técnico de",
       line3Before: "apps y soporte",
       line3After: "BIM.",
-      start: "Proyecto principal: herramientas pyRevit para produccion Revit",
+      start: "Proyecto principal: herramientas pyRevit para producción Revit",
       openApps: "Abrir Revit Tools",
       year: "2026",
       corner: "revit · apps · soporte"
     },
     portfolio: {
-      eyebrow: "hub tecnico / portfolio",
+      eyebrow: "hub técnico / portfolio",
       title: "El proyecto profesional principal es pyMenvic Revit Tools.",
-      text: "pyMenvic funciona como punto publico para herramientas de produccion BIM, apps mantenidas por Menvic y recursos de soporte. La prioridad profesional son las utilidades pyRevit para Revit; el resto del sitio documenta proyectos relacionados cuando necesitan una ruta publica clara.",
+      text: "pyMenvic funciona como punto público para herramientas de producción BIM, apps mantenidas por Menvic y recursos de soporte. La prioridad profesional son las utilidades pyRevit para Revit; el resto del sitio documenta proyectos relacionados cuando necesitan una ruta pública clara.",
       primaryLabel: "Proyecto principal",
       primaryTitle: "pyMenvic Revit Tools",
-      primaryText: "Utilities for Revit production: schedules, sheets, worksets, links, model setup, documentation support, and office standards.",
-      primaryCta: "Open Revit Tools",
+      primaryText: "Utilidades para producción Revit: tablas, planos, worksets, vínculos, configuración de modelos, soporte de documentación y estándares de oficina.",
+      primaryCta: "Abrir Revit Tools",
       secondaryTitle: "Otros proyectos documentados",
       secondary: [
         ["Apps", "Padel Score y previews seleccionadas con soporte, privacidad y compatibilidad visibles.", "/apps/"],
-        ["Learning", "Notas cortas para workflows, configuracion y decisiones tecnicas mantenibles.", "/learning/"],
-        ["Support", "Rutas directas para soporte, politicas, contacto y preguntas de herramientas.", "/support/"]
+        ["Aprendizaje", "Notas cortas para flujos de trabajo, configuración y decisiones técnicas mantenibles.", "/learning/"],
+        ["Soporte", "Rutas directas para soporte, políticas, contacto y preguntas de herramientas.", "/support/"]
       ]
     }
   },
@@ -5754,7 +5754,7 @@ function Kf({ locale: S, onToggleLocale: M }) {
           className: "mt-2 rounded-2xl bg-[#1a1a1a] px-3 py-3 text-left font-display text-2xl font-semibold lowercase tracking-[-0.04em] text-white",
           type: "button",
           onClick: M,
-          children: S === "es" ? "switch to english" : "cambiar a espanol"
+          children: S === "es" ? "cambiar a inglés" : "switch to Spanish"
         }
       )
     ] }) }) : null
