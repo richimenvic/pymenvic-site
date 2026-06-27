@@ -52,7 +52,7 @@
     h2 { margin-bottom: 10px; font-size: clamp(1.45rem, 3.4vw, 2rem); letter-spacing: -.025em; }
     h3 { margin-bottom: 0; font-size: 1.1rem; letter-spacing: -.015em; }
     .subtitle { max-width: 780px; margin-bottom: 18px; color: var(--muted-strong); font-size: clamp(1.12rem, 3vw, 1.45rem); font-weight: 850; }
-    .hero-text, .section-intro, .card-description, .small-note, .footer p { color: var(--muted); }
+    .hero-text, .section-intro, .card-description, .small-note { color: var(--muted); }
     .hero-panel { border: 1px solid rgba(125,211,252,.22); border-radius: 18px; background: rgba(8,13,18,.55); padding: 22px; }
     .hero-panel strong { display: block; margin-bottom: 8px; color: var(--text); font-size: 1.04rem; }
     .hero-panel p { margin-bottom: 10px; color: var(--muted-strong); }
@@ -63,14 +63,11 @@
     .cards, .screens { display: grid; gap: 16px; }
     .cards { grid-template-columns: repeat(auto-fit, minmax(min(100%, 245px), 1fr)); }
     .screens { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .card, .screen-card, .footer { border: 1px solid var(--border); border-radius: 16px; background: var(--surface-strong); box-shadow: 0 12px 32px rgba(0,0,0,.18); }
+    .card, .screen-card { border: 1px solid var(--border); border-radius: 16px; background: var(--surface-strong); box-shadow: 0 12px 32px rgba(0,0,0,.18); }
     .card, .screen-card { padding: 20px; }
     .card-description { margin-bottom: 0; }
     .shot { display: block; width: 100%; height: auto; border: 1px solid rgba(255,255,255,.10); border-radius: 12px; background: #081018; margin-bottom: 14px; }
     .small-note { margin-top: 14px; margin-bottom: 0; padding: 13px 14px; border: 1px solid rgba(125,211,252,.22); border-radius: 12px; background: rgba(125,211,252,.06); font-size: .94rem; }
-    .footer { margin-top: 30px; padding: 24px; font-size: .95rem; }
-    .footer-links { display: flex; flex-wrap: wrap; gap: 10px 16px; margin-top: 14px; }
-    .footer-links a { color: var(--muted-strong); font-weight: 800; text-underline-offset: 3px; }
     .contact-link { color: var(--accent); font-weight: 850; text-decoration-thickness: 2px; text-underline-offset: 3px; }
     body .salchi-screen-card .screen-face { align-content: space-between; justify-items: stretch; overflow: hidden; }
     body .salchi-screen-card .screen-front { gap: 16px; }
@@ -94,9 +91,9 @@
     body .salchi-screen-card .screen-back .card-description { max-width: 30ch; }
     @media (max-width: 900px) { .hero, .screens { grid-template-columns: 1fr; } }
     @media (max-width: 780px) { .topbar { align-items: flex-start; flex-direction: column; } .top-nav { justify-content: flex-start; } }
-    @media (max-width: 560px) { .page { width: min(100% - 24px, 1120px); } .hero, .card, .screen-card, .footer { border-radius: 18px; } }
+    @media (max-width: 560px) { .page { width: min(100% - 24px, 1120px); } .hero, .card, .screen-card { border-radius: 18px; } }
   </style>
-  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/site.css?v=footer-1">
 </head>
 <body>
   <main class="page">
@@ -256,7 +253,7 @@
       <p class="small-note">This page is a visual documentation page only. It does not link to the live private app.</p>
     </section>
 
-    <footer class="footer">
+    <footer class="site-footer">
       <p>&copy; Menvic</p>
       <p>pyMenvic is a collection of independent tools and resources by Menvic.</p>
       <p>Support: <a class="contact-link" href="mailto:contacto@menvic.com">contacto@menvic.com</a></p>
@@ -270,6 +267,6 @@
       </nav>
     </footer>
   </main>
-  <script src="/assets/site-i18n.js?v=global-zoom-3"></script>
+  <script src="/assets/site-i18n.js?v=global-zoom-4"></script>
 </body>
 </html>

@@ -450,20 +450,6 @@
 
     .contact-link { color: var(--accent); font-weight: 850; text-decoration-thickness: 2px; text-underline-offset: 3px; }
 
-    .footer {
-      margin-top: 30px;
-      padding: 24px;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      background: rgba(15, 20, 35, 0.72);
-      font-size: 0.95rem;
-    }
-
-    .footer p { margin-bottom: 8px; }
-    .footer p:last-child { margin-bottom: 0; }
-    .footer-links { display: flex; flex-wrap: wrap; gap: 10px 16px; margin-top: 14px; }
-    .footer-links a { color: var(--muted-strong); font-weight: 800; text-underline-offset: 3px; }
-
     @media (max-width: 820px) {
       .topbar, .section-heading { align-items: flex-start; flex-direction: column; }
       .top-nav { justify-content: flex-start; }
@@ -473,7 +459,7 @@
 
     @media (max-width: 560px) {
       .page { width: min(100% - 24px, 1120px); }
-      .hero, .card, .screen-card, .step, .availability, .footer { border-radius: 22px; }
+      .hero, .card, .screen-card, .step, .availability { border-radius: 22px; }
       .hero-actions { align-items: flex-start; flex-direction: column; }
       .button { width: 100%; }
       .screens { grid-template-columns: 1fr; }
@@ -498,7 +484,7 @@
     }
 
   </style>
-  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/site.css?v=footer-1">
 </head>
 <body>
   <main class="page">
@@ -790,7 +776,7 @@
       </article>
     </section>
 
-    <footer class="footer">
+    <footer class="site-footer">
       <p>&copy; Menvic</p>
       <p>pyMenvic is a collection of independent tools and resources by Menvic.</p>
       <p>Support: <a class="contact-link" href="mailto:contacto@menvic.com">contacto@menvic.com</a></p>
@@ -805,6 +791,6 @@
       </nav>
     </footer>
   </main>
-  <script src="/assets/site-i18n.js?v=global-zoom-3"></script>
+  <script src="/assets/site-i18n.js?v=global-zoom-4"></script>
 </body>
 </html>
