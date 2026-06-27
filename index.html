@@ -6,6 +6,7 @@
   <meta name="description" content="pyMenvic is the technical hub for Menvic Revit tools, practical apps, support pages, and learning resources.">
   <meta property="og:title" content="pyMenvic | Menvic technical hub">
   <meta property="og:description" content="Revit automation, Menvic apps, support links, privacy pages, and learning resources in one public hub.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <title>pyMenvic | Menvic technical hub</title>
 </head>
 <body>
@@ -15,6 +16,30 @@
       document.documentElement.dataset.appError = event.message || "Script error";
     });
   </script>
-  <script type="module" src="/src/main.jsx"></script>
+  <script type="module">
+    async function loadApp() {
+      const hasViteServer = await fetch("/@vite/client", { method: "HEAD" })
+        .then((response) => response.ok)
+        .catch(() => false);
+
+      if (hasViteServer) {
+        await import("/src/main.jsx");
+        return;
+      }
+
+      const stylesheet = document.createElement("link");
+      stylesheet.rel = "stylesheet";
+      stylesheet.href = "/assets/app/home.css";
+      document.head.append(stylesheet);
+
+      const staticBundle = "/assets/app/home.bundle.js";
+      await import(/* @vite-ignore */ staticBundle);
+    }
+
+    loadApp().catch((error) => {
+      document.documentElement.dataset.appError = error instanceof Error ? error.message : "App load failed";
+      console.error(error);
+    });
+  </script>
 </body>
 </html>
