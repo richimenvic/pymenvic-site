@@ -278,7 +278,11 @@
     "Zoom": "Ampliar",
     "Expanded screenshot preview": "Vista ampliada de la captura",
     "Close expanded screenshot": "Cerrar captura ampliada",
-    "Screenshot preview": "Vista previa de captura"
+    "Screenshot preview": "Vista previa de captura",
+    "Details": "Detalles",
+    "Back": "Volver",
+    "Show details": "Mostrar detalles",
+    "Hide details": "Ocultar detalles"
   };
 
   function translateValue(value, locale) {
@@ -393,6 +397,67 @@
     } else {
       document.body.appendChild(button);
     }
+  }
+
+  function installScreenCardDetails() {
+    document.querySelectorAll(".screen-card .flip-card").forEach(function (flipCard) {
+      var card = flipCard.closest(".screen-card");
+      var front = flipCard.querySelector(".screen-front");
+      var back = flipCard.querySelector(".screen-back");
+      if (!card || !front || !back || card.dataset.detailsInstalled) {
+        return;
+      }
+
+      card.dataset.detailsInstalled = "true";
+      back.setAttribute("aria-hidden", "true");
+
+      var frontButton = document.createElement("button");
+      frontButton.className = "screen-details-toggle";
+      frontButton.type = "button";
+      frontButton.dataset.i18n = "Details";
+      frontButton.dataset.i18nAttr = "aria-label";
+      frontButton.setAttribute("aria-label", "Show details");
+      frontButton.setAttribute("aria-expanded", "false");
+      frontButton.textContent = "Details";
+
+      var backButton = document.createElement("button");
+      backButton.className = "screen-details-toggle";
+      backButton.type = "button";
+      backButton.dataset.i18n = "Back";
+      backButton.dataset.i18nAttr = "aria-label";
+      backButton.setAttribute("aria-label", "Hide details");
+      backButton.setAttribute("aria-expanded", "true");
+      backButton.tabIndex = -1;
+      backButton.textContent = "Back";
+
+      front.appendChild(frontButton);
+      back.appendChild(backButton);
+
+      function setOpen(isOpen) {
+        card.classList.toggle("is-details-open", isOpen);
+        back.setAttribute("aria-hidden", isOpen ? "false" : "true");
+        frontButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        backButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        frontButton.tabIndex = isOpen ? -1 : 0;
+        backButton.tabIndex = isOpen ? 0 : -1;
+      }
+
+      [frontButton, backButton].forEach(function (button) {
+        button.addEventListener("click", function (event) {
+          event.preventDefault();
+          event.stopPropagation();
+          setOpen(!card.classList.contains("is-details-open"));
+        });
+
+        button.addEventListener("keydown", function (event) {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            event.stopPropagation();
+            setOpen(!card.classList.contains("is-details-open"));
+          }
+        });
+      });
+    });
   }
 
   function installImageZoom() {
@@ -526,6 +591,7 @@
   }
 
   installToggle();
+  installScreenCardDetails();
   apply(current);
   installImageZoom();
 })();

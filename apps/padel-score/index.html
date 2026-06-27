@@ -341,9 +341,7 @@
       transform-style: preserve-3d;
     }
 
-    .screen-card:hover .flip-card,
-    .screen-card:focus-within .flip-card,
-    .screen-card:focus .flip-card {
+    .screen-card.is-details-open .flip-card {
       transform: rotateY(180deg);
     }
 
@@ -471,20 +469,10 @@
       .flip-card {
         transition: none;
       }
-
-      .screen-card:hover .flip-card,
-      .screen-card:focus-within .flip-card,
-      .screen-card:focus .flip-card {
-        transform: none;
-      }
-
-      .screen-back {
-        display: none;
-      }
     }
 
   </style>
-  <link rel="stylesheet" href="/assets/site.css?v=i18n-global-2">
+  <link rel="stylesheet" href="/assets/site.css?v=card-details-2">
 </head>
 <body>
   <main class="page">
@@ -791,6 +779,6 @@
       </nav>
     </footer>
   </main>
-  <script src="/assets/site-i18n.js?v=i18n-global-2"></script>
+  <script src="/assets/site-i18n.js?v=card-details-2"></script>
 </body>
 </html>

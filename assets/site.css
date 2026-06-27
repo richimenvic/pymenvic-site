@@ -1065,19 +1065,8 @@ footer p {
   transform-style: preserve-3d;
 }
 
-.screen-card:hover .flip-card,
-.screen-card:focus-within .flip-card,
-.screen-card:focus .flip-card {
+.screen-card.is-details-open .flip-card {
   transform: rotateY(180deg);
-}
-
-.screen-card:has(.screen-front img:hover) .flip-card,
-.screen-card:has(.screen-front img:focus) .flip-card,
-.screen-card:has(.screen-front img:active) .flip-card,
-.screen-card:has(.zoom-trigger:hover) .flip-card,
-.screen-card:has(.zoom-trigger:focus) .flip-card,
-.screen-card:has(.zoom-trigger:active) .flip-card {
-  transform: none;
 }
 
 .screen-face {
@@ -1128,16 +1117,36 @@ footer p {
 }
 
 .flip-hint {
+  display: none;
+}
+
+.screen-details-toggle {
   display: inline-flex;
+  width: fit-content;
+  min-height: 34px;
   align-items: center;
-  margin-top: 20px;
-  padding: 7px 10px;
-  border: 1px solid rgba(37, 99, 235, 0.18);
+  justify-content: center;
+  margin-top: 14px;
+  padding: 7px 11px;
+  border: 1px solid rgba(37, 99, 235, 0.22);
   border-radius: 999px;
   color: var(--accent-ink);
   background: var(--accent-soft);
+  cursor: pointer;
   font-size: 0.78rem;
-  font-weight: 800;
+  font-weight: 850;
+  line-height: 1.1;
+}
+
+.screen-details-toggle:hover,
+.screen-details-toggle:focus-visible {
+  border-color: rgba(37, 99, 235, 0.36);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.16);
+}
+
+.screen-back .screen-details-toggle {
+  margin-top: 20px;
 }
 
 .icon,
@@ -1322,15 +1331,5 @@ footer p {
 @media (prefers-reduced-motion: reduce) {
   .flip-card {
     transition: none;
-  }
-
-  .screen-card:hover .flip-card,
-  .screen-card:focus-within .flip-card,
-  .screen-card:focus .flip-card {
-    transform: none;
-  }
-
-  .screen-back {
-    display: none;
   }
 }
