@@ -18,11 +18,7 @@
   </script>
   <script type="module">
     async function loadApp() {
-      const hasViteServer = await fetch("/@vite/client", { method: "HEAD" })
-        .then((response) => response.ok)
-        .catch(() => false);
-
-      if (hasViteServer) {
+      if (import.meta.env?.DEV) {
         await import("/src/main.jsx");
         return;
       }
