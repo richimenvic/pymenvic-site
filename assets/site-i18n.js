@@ -116,6 +116,108 @@
     }
   }
 
+  function installImageZoom() {
+    var selector = [
+      ".zoom-trigger",
+      ".screen-card .screen-front img",
+      ".app-media img",
+      ".tool-preview-frame img"
+    ].join(",");
+    var zoomTargets = Array.prototype.slice.call(document.querySelectorAll(selector)).filter(function (target) {
+      return !(target.tagName === "IMG" && target.closest(".zoom-trigger"));
+    });
+
+    if (!zoomTargets.length) {
+      return;
+    }
+
+    var dialog = document.querySelector(".image-zoom-dialog");
+    if (!dialog) {
+      dialog = document.createElement("dialog");
+      dialog.className = "image-zoom-dialog";
+      dialog.setAttribute("aria-label", "Expanded screenshot preview");
+      dialog.innerHTML =
+        '<div class="image-zoom-shell">' +
+        '<button class="image-zoom-close" type="button" aria-label="Close expanded screenshot">&times;</button>' +
+        '<img src="" alt="">' +
+        '<p class="image-zoom-caption"></p>' +
+        '</div>';
+      document.body.appendChild(dialog);
+    }
+
+    var zoomImage = dialog.querySelector("img");
+    var zoomCaption = dialog.querySelector(".image-zoom-caption");
+    var zoomClose = dialog.querySelector(".image-zoom-close");
+
+    function imageFor(target) {
+      return target.tagName === "IMG" ? target : target.querySelector("img");
+    }
+
+    function captionFor(target) {
+      var image = imageFor(target);
+      var card = target.closest(".screen-card, .app-card, .tool-flip-card");
+      var heading = card && card.querySelector("h3");
+      return (heading && heading.textContent.trim()) || (image && image.alt) || "Screenshot preview";
+    }
+
+    function openZoom(target) {
+      var image = imageFor(target);
+      if (!image || !image.currentSrc && !image.src) {
+        return;
+      }
+
+      zoomImage.src = image.currentSrc || image.src;
+      zoomImage.alt = image.alt || "";
+      zoomCaption.textContent = captionFor(image);
+
+      if (!dialog.open) {
+        dialog.showModal();
+      }
+    }
+
+    zoomTargets.forEach(function (target) {
+      if (target.dataset.zoomInstalled) {
+        return;
+      }
+
+      target.dataset.zoomInstalled = "true";
+
+      if (target.tagName !== "BUTTON") {
+        target.setAttribute("tabindex", "0");
+        target.setAttribute("role", "button");
+      }
+
+      target.setAttribute("aria-label", "Zoom " + captionFor(target));
+
+      target.addEventListener("click", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        openZoom(target);
+      });
+
+      target.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          event.stopPropagation();
+          openZoom(target);
+        }
+      });
+    });
+
+    if (!dialog.dataset.zoomInstalled) {
+      dialog.dataset.zoomInstalled = "true";
+      zoomClose.addEventListener("click", function () {
+        dialog.close();
+      });
+      dialog.addEventListener("click", function (event) {
+        if (event.target === dialog) {
+          dialog.close();
+        }
+      });
+    }
+  }
+
   installToggle();
   apply(current);
+  installImageZoom();
 })();
