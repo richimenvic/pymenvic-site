@@ -1,4 +1,3 @@
-import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { copy, type Locale } from "../i18n";
 
@@ -20,17 +19,14 @@ function BrandMark() {
 function Hamburger({ open }: { open: boolean }) {
   return (
     <span className="relative block h-5 w-7" aria-hidden="true">
-      <motion.span
-        className="absolute left-0 top-1 h-[2px] w-7 rounded-full bg-[#1a1a1a]"
-        animate={open ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
+      <span
+        className={`absolute left-0 top-1 h-[2px] w-7 rounded-full bg-[#1a1a1a] transition-transform duration-200 ${open ? "translate-y-1.5 rotate-45" : ""}`}
       />
-      <motion.span
-        className="absolute left-0 top-1/2 h-[2px] w-7 rounded-full bg-[#1a1a1a]"
-        animate={open ? { opacity: 0, x: 8 } : { opacity: 1, x: 0 }}
+      <span
+        className={`absolute left-0 top-1/2 h-[2px] w-7 rounded-full bg-[#1a1a1a] transition-all duration-200 ${open ? "translate-x-2 opacity-0" : "opacity-100"}`}
       />
-      <motion.span
-        className="absolute bottom-1 left-0 h-[2px] w-7 rounded-full bg-[#1a1a1a]"
-        animate={open ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
+      <span
+        className={`absolute bottom-1 left-0 h-[2px] w-7 rounded-full bg-[#1a1a1a] transition-transform duration-200 ${open ? "-translate-y-1.5 -rotate-45" : ""}`}
       />
     </span>
   );
@@ -90,32 +86,24 @@ export default function Navbar({ locale, onToggleLocale }: NavbarProps) {
         </div>
       </div>
 
-      <AnimatePresence>
-        {open ? (
-          <motion.div
-            initial={{ opacity: 0, y: -18 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -18 }}
-            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className="mx-6 mt-5 rounded-[24px] border border-black/10 bg-white/75 p-5 shadow-2xl shadow-black/10 backdrop-blur-xl md:hidden"
-          >
-            <nav className="grid gap-2" aria-label="Mobile navigation">
-              {navLinks.map(([key, href]) => (
-                <a key={href} href={href} className="rounded-2xl px-3 py-3 font-display text-2xl font-semibold lowercase tracking-[-0.04em] text-[#1a1a1a]">
-                  {text[key]}
-                </a>
-              ))}
-              <button
-                className="mt-2 rounded-2xl bg-[#1a1a1a] px-3 py-3 text-left font-display text-2xl font-semibold lowercase tracking-[-0.04em] text-white"
-                type="button"
-                onClick={onToggleLocale}
-              >
-                {locale === "es" ? "switch to english" : "cambiar a espanol"}
-              </button>
-            </nav>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
+      {open ? (
+        <div className="mx-6 mt-5 animate-[menu-enter_0.28s_cubic-bezier(0.22,1,0.36,1)_both] rounded-[24px] border border-black/10 bg-white/75 p-5 shadow-2xl shadow-black/10 backdrop-blur-xl md:hidden">
+          <nav className="grid gap-2" aria-label="Mobile navigation">
+            {navLinks.map(([key, href]) => (
+              <a key={href} href={href} className="rounded-2xl px-3 py-3 font-display text-2xl font-semibold lowercase tracking-[-0.04em] text-[#1a1a1a]">
+                {text[key]}
+              </a>
+            ))}
+            <button
+              className="mt-2 rounded-2xl bg-[#1a1a1a] px-3 py-3 text-left font-display text-2xl font-semibold lowercase tracking-[-0.04em] text-white"
+              type="button"
+              onClick={onToggleLocale}
+            >
+              {locale === "es" ? "switch to english" : "cambiar a espanol"}
+            </button>
+          </nav>
+        </div>
+      ) : null}
     </header>
   );
 }

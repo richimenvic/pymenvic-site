@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { useEffect, useState } from "react";
 import { copy, type Locale } from "../i18n";
 
 const videoUrl =
@@ -27,24 +27,36 @@ type HeroProps = {
 
 export default function Hero({ locale, onToggleLocale }: HeroProps) {
   const text = copy[locale].hero;
+  const [loadVideo, setLoadVideo] = useState(false);
+
+  useEffect(() => {
+    const load = () => setLoadVideo(true);
+
+    if ("requestIdleCallback" in window) {
+      const idleId = window.requestIdleCallback(load, { timeout: 1800 });
+      return () => window.cancelIdleCallback(idleId);
+    }
+
+    const timeoutId = window.setTimeout(load, 800);
+    return () => window.clearTimeout(timeoutId);
+  }, []);
 
   return (
     <section className="relative flex min-h-[110vh] w-full flex-col items-center justify-start overflow-hidden bg-bg-base sm:min-h-[140vh]">
       <div className="pointer-events-none absolute left-0 top-[15vh] z-0 h-[95vh] w-full sm:top-[20vh] sm:h-[120vh]">
-        <video autoPlay loop muted playsInline className="h-full w-full object-cover opacity-100">
-          <source src={videoUrl} type="video/mp4" />
-        </video>
+        {loadVideo ? (
+          <video autoPlay loop muted playsInline preload="none" className="h-full w-full object-cover opacity-100">
+            <source src={videoUrl} type="video/mp4" />
+          </video>
+        ) : null}
         <div className="absolute left-0 top-0 h-24 w-full bg-gradient-to-b from-bg-base to-transparent sm:h-32" />
         <div className="absolute bottom-0 left-0 h-36 w-full bg-gradient-to-t from-bg-base to-transparent" />
       </div>
 
       <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-12 gap-x-4 px-8 pb-16 pt-[21vh] md:gap-x-8 md:px-16 lg:px-20">
         <div className="col-span-12 md:col-span-10 md:col-start-2">
-          <motion.h1
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="font-display text-[clamp(3.35rem,10vw,8.4rem)] font-semibold leading-[0.88] tracking-[-0.075em] text-[#8e8e8e]"
+          <h1
+            className="animate-[hero-enter_0.8s_ease-out_both] font-display text-[clamp(3.35rem,10vw,8.4rem)] font-semibold leading-[0.88] tracking-[-0.075em] text-[#8e8e8e]"
           >
             <span className="text-[#1a1a1a]">{text.line1Strong}</span> <span>{text.line1Muted}</span>
             <br />
@@ -53,13 +65,10 @@ export default function Hero({ locale, onToggleLocale }: HeroProps) {
             <span>
               {text.line3Before} <EyePill /> {text.line3After}
             </span>
-          </motion.h1>
+          </h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-            className="mt-9 w-full max-w-[560px]"
+          <div
+            className="mt-9 w-full max-w-[560px] animate-[hero-enter_0.8s_ease-out_0.15s_both]"
           >
             <div className="flex items-center rounded-[6px] border border-black/[0.05] bg-white p-1 pl-4 shadow-sm">
               <span className="min-w-0 flex-1 text-sm font-medium text-zinc-500">
@@ -69,7 +78,7 @@ export default function Hero({ locale, onToggleLocale }: HeroProps) {
                 <ArrowIcon />
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
 
