@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import PortfolioOverview from "./components/PortfolioOverview";
 import type { Locale } from "./i18n";
 
 export default function App() {
@@ -24,6 +25,7 @@ export default function App() {
       <Navbar locale={locale} onToggleLocale={toggleLocale} />
       <main>
         <Hero locale={locale} onToggleLocale={toggleLocale} />
+        <PortfolioOverview locale={locale} />
       </main>
     </div>
   );

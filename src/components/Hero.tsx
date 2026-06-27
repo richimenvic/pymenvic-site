@@ -43,7 +43,7 @@ export default function Hero({ locale, onToggleLocale }: HeroProps) {
 
   return (
     <section className="relative flex min-h-[110vh] w-full flex-col items-center justify-start overflow-hidden bg-bg-base sm:min-h-[140vh]">
-      <div className="pointer-events-none absolute left-0 top-[15vh] z-0 h-[95vh] w-full sm:top-[20vh] sm:h-[120vh]">
+      <div className="pointer-events-none absolute left-0 top-[46vh] z-0 h-[78vh] w-full sm:top-[28vh] sm:h-[112vh] lg:top-[20vh] lg:h-[120vh]">
         {loadVideo ? (
           <video autoPlay loop muted playsInline preload="none" className="h-full w-full object-cover opacity-100">
             <source src={videoUrl} type="video/mp4" />
@@ -56,7 +56,7 @@ export default function Hero({ locale, onToggleLocale }: HeroProps) {
       <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-12 gap-x-4 px-8 pb-16 pt-[21vh] md:gap-x-8 md:px-16 lg:px-20">
         <div className="col-span-12 md:col-span-10 md:col-start-2">
           <h1
-            className="animate-[hero-enter_0.8s_ease-out_both] font-display text-[clamp(3.35rem,10vw,8.4rem)] font-semibold leading-[0.88] tracking-[-0.075em] text-[#8e8e8e]"
+            className="animate-[hero-enter_0.8s_ease-out_both] font-display text-[clamp(2.85rem,9vw,6.7rem)] font-semibold leading-[0.94] tracking-[-0.04em] text-[#8e8e8e]"
           >
             <span className="text-[#1a1a1a]">{text.line1Strong}</span> <span>{text.line1Muted}</span>
             <br />
@@ -70,11 +70,11 @@ export default function Hero({ locale, onToggleLocale }: HeroProps) {
           <div
             className="mt-9 w-full max-w-[560px] animate-[hero-enter_0.8s_ease-out_0.15s_both]"
           >
-            <div className="flex items-center rounded-[6px] border border-black/[0.05] bg-white p-1 pl-4 shadow-sm">
-              <span className="min-w-0 flex-1 text-sm font-medium text-zinc-500">
+            <div className="flex items-center rounded-[6px] border border-black/10 bg-white/90 p-1 pl-4 shadow-sm backdrop-blur-sm">
+              <span className="min-w-0 flex-1 text-sm font-semibold text-zinc-700">
                 {text.start}
               </span>
-              <a className="relative h-9 w-9 rounded-full bg-[#1a1a1a] text-white" href="/apps/" aria-label={text.openApps}>
+              <a className="relative h-9 w-9 rounded-full bg-[#1a1a1a] text-white" href="/revit-tools/" aria-label={text.openApps}>
                 <ArrowIcon />
               </a>
             </div>

@@ -72,6 +72,17 @@
     .footer-links { display: flex; flex-wrap: wrap; gap: 10px 16px; margin-top: 14px; }
     .footer-links a { color: var(--muted-strong); font-weight: 800; text-underline-offset: 3px; }
     .contact-link { color: var(--accent); font-weight: 850; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+    body .salchi-screen-card .screen-face { align-content: space-between; justify-items: stretch; overflow: hidden; }
+    body .salchi-screen-card .screen-front { gap: 16px; }
+    body .salchi-screen-card .shot {
+      height: 300px;
+      margin: 0;
+      object-fit: cover;
+      object-position: top center;
+    }
+    body .salchi-screen-card .screen-front h3 { margin-top: 0; text-align: left; }
+    body .salchi-screen-card .screen-back h3 { max-width: 16rem; }
+    body .salchi-screen-card .screen-back .card-description { max-width: 30ch; }
     @media (max-width: 900px) { .hero, .screens { grid-template-columns: 1fr; } }
     @media (max-width: 780px) { .topbar { align-items: flex-start; flex-direction: column; } .top-nav { justify-content: flex-start; } }
     @media (max-width: 560px) { .page { width: min(100% - 24px, 1120px); } .hero, .card, .screen-card, .footer { border-radius: 18px; } }
@@ -125,12 +136,101 @@
         <p class="section-intro">Real screenshots from the project, showing the reservation workflow and internal management screens.</p>
       </div>
       <div class="screens">
-        <article class="screen-card"><img class="shot" src="/assets/apps/padel-salchi/01-reserva-seleccionada.webp" alt="Reservation calendar and booking interface"><h3>Reservation selection</h3><p class="card-description">Main reservation page with calendar, available slots, and confirmation panel.</p></article>
-        <article class="screen-card"><img class="shot" src="/assets/apps/padel-salchi/02-reservas-disponibles.webp" alt="Reservation page showing available and reserved slots"><h3>Occupied and available slots</h3><p class="card-description">Status-based slot display with selected, free, and reserved time ranges.</p></article>
-        <article class="screen-card"><img class="shot" src="/assets/apps/padel-salchi/03-cancelar-reserva.webp" alt="Reservation cancellation confirmation flow"><h3>Cancellation flow</h3><p class="card-description">Dedicated confirmation state for cancelling an existing reservation.</p></article>
-        <article class="screen-card"><img class="shot" src="/assets/apps/padel-salchi/04-cambiar-pin.webp" alt="Change PIN page"><h3>Change PIN</h3><p class="card-description">Simple PIN update page for vivienda access management.</p></article>
-        <article class="screen-card"><img class="shot" src="/assets/apps/padel-salchi/05-administracion.webp" alt="Administration panel"><h3>Administration</h3><p class="card-description">Internal panel for PIN reset and reservation cleanup operations.</p></article>
-        <article class="screen-card"><img class="shot" src="/assets/apps/padel-salchi/06-informes.webp" alt="Administrative reports page"><h3>Reports</h3><p class="card-description">Administrative reporting view with summary cards and reservation details.</p></article>
+        <article class="screen-card salchi-screen-card" tabindex="0" aria-label="Reservation selection. Main reservation page with calendar, available slots, and confirmation panel.">
+          <div class="flip-card">
+            <div class="screen-face screen-front">
+              <img class="shot" src="/assets/apps/padel-salchi/01-reserva-seleccionada.webp" alt="Reservation calendar and booking interface">
+              <h3>Reservation selection</h3>
+            </div>
+            <div class="screen-face screen-back" aria-hidden="true">
+              <div>
+                <h3>Reservation selection</h3>
+                <p class="card-description">Main reservation page with calendar, available slots, and confirmation panel.</p>
+              </div>
+              <span class="flip-hint">Hover to return</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="screen-card salchi-screen-card" tabindex="0" aria-label="Occupied and available slots. Status-based slot display with selected, free, and reserved time ranges.">
+          <div class="flip-card">
+            <div class="screen-face screen-front">
+              <img class="shot" src="/assets/apps/padel-salchi/02-reservas-disponibles.webp" alt="Reservation page showing available and reserved slots">
+              <h3>Occupied and available slots</h3>
+            </div>
+            <div class="screen-face screen-back" aria-hidden="true">
+              <div>
+                <h3>Occupied and available slots</h3>
+                <p class="card-description">Status-based slot display with selected, free, and reserved time ranges.</p>
+              </div>
+              <span class="flip-hint">Hover to return</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="screen-card salchi-screen-card" tabindex="0" aria-label="Cancellation flow. Dedicated confirmation state for cancelling an existing reservation.">
+          <div class="flip-card">
+            <div class="screen-face screen-front">
+              <img class="shot" src="/assets/apps/padel-salchi/03-cancelar-reserva.webp" alt="Reservation cancellation confirmation flow">
+              <h3>Cancellation flow</h3>
+            </div>
+            <div class="screen-face screen-back" aria-hidden="true">
+              <div>
+                <h3>Cancellation flow</h3>
+                <p class="card-description">Dedicated confirmation state for cancelling an existing reservation.</p>
+              </div>
+              <span class="flip-hint">Hover to return</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="screen-card salchi-screen-card" tabindex="0" aria-label="Change PIN. Simple PIN update page for vivienda access management.">
+          <div class="flip-card">
+            <div class="screen-face screen-front">
+              <img class="shot" src="/assets/apps/padel-salchi/04-cambiar-pin.webp" alt="Change PIN page">
+              <h3>Change PIN</h3>
+            </div>
+            <div class="screen-face screen-back" aria-hidden="true">
+              <div>
+                <h3>Change PIN</h3>
+                <p class="card-description">Simple PIN update page for vivienda access management.</p>
+              </div>
+              <span class="flip-hint">Hover to return</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="screen-card salchi-screen-card" tabindex="0" aria-label="Administration. Internal panel for PIN reset and reservation cleanup operations.">
+          <div class="flip-card">
+            <div class="screen-face screen-front">
+              <img class="shot" src="/assets/apps/padel-salchi/05-administracion.webp" alt="Administration panel">
+              <h3>Administration</h3>
+            </div>
+            <div class="screen-face screen-back" aria-hidden="true">
+              <div>
+                <h3>Administration</h3>
+                <p class="card-description">Internal panel for PIN reset and reservation cleanup operations.</p>
+              </div>
+              <span class="flip-hint">Hover to return</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="screen-card salchi-screen-card" tabindex="0" aria-label="Reports. Administrative reporting view with summary cards and reservation details.">
+          <div class="flip-card">
+            <div class="screen-face screen-front">
+              <img class="shot" src="/assets/apps/padel-salchi/06-informes.webp" alt="Administrative reports page">
+              <h3>Reports</h3>
+            </div>
+            <div class="screen-face screen-back" aria-hidden="true">
+              <div>
+                <h3>Reports</h3>
+                <p class="card-description">Administrative reporting view with summary cards and reservation details.</p>
+              </div>
+              <span class="flip-hint">Hover to return</span>
+            </div>
+          </div>
+        </article>
       </div>
       <p class="small-note">This page is a visual documentation page only. It does not link to the live private app.</p>
     </section>

@@ -61,7 +61,7 @@ export default function Navbar({ locale, onToggleLocale }: NavbarProps) {
           <a className="hidden text-[0.78rem] font-semibold lowercase text-zinc-700 transition-colors hover:text-black sm:inline-flex" href="/support/">
             {text.help}
           </a>
-          <a className="hidden rounded-full bg-[#1a1a1a] px-4 py-2 text-[0.8rem] font-semibold lowercase text-white transition-transform hover:-translate-y-0.5 sm:inline-flex" href="/apps/">
+          <a className="hidden rounded-full bg-[#1a1a1a] px-4 py-2 text-[0.8rem] font-semibold lowercase text-white transition-transform hover:-translate-y-0.5 sm:inline-flex" href="/revit-tools/">
             {text.cta} <span className="ml-1">→</span>
           </a>
           <button
