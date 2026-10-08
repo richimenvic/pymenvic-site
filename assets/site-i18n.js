@@ -165,6 +165,7 @@
     "pyMenvic / pyRevit utilities": "Utilidades pyMenvic / pyRevit",
     "Install pyMenvic": "Instalar pyMenvic",
     "Verify installer (SHA-256)": "Verificar instalador (SHA-256)",
+    "In PowerShell:": "En PowerShell:",
     "Compare the checksum below with the SHA-256 of your downloaded": "Compara el código siguiente con el SHA-256 del instalador descargado",
     "Request setup access": "Solicitar acceso de instalación",
     "For Windows environments using Revit and pyRevit.": "Para entornos Windows que usan Revit y pyRevit.",
@@ -358,7 +359,7 @@
     document.documentElement.lang = locale;
     updateLanguageBlocks(locale);
 
-    document.querySelectorAll("[data-i18n],h1,h2,h3,p,a,button,strong,small,span,li").forEach(function (node) {
+    document.querySelectorAll("[data-i18n],h1,h2,h3,p,a,button,strong,small,span,li,summary").forEach(function (node) {
       if (node.closest("script,style") || node.classList.contains("language-toggle")) {
         return;
       }
