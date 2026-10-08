@@ -42,7 +42,14 @@
         </nav>
         <p class="small-note installer-note">For Windows environments using Revit and pyRevit.</p>
         <p class="small-note installer-note">Windows SmartScreen may warn that the installer is not commonly downloaded because pyMenvic Setup is currently unsigned. Verify the SHA-256 before opening it.</p>
-        <p class="small-note installer-note"><strong>Current Setup SHA-256:</strong> <code>9849F7686C13B4EA1FF11707A01EAEEB4C32039090F0DDCB966E4E1514464636</code></p>
+        <details class="small-note installer-note" style="margin-top:0.65rem; max-width:100%;">
+          <summary style="cursor:pointer; font-weight:600;">Verify installer (SHA-256)</summary>
+          <div style="margin-top:0.65rem;">
+            <p>Compare the checksum below with the SHA-256 of your downloaded <code>pyMenvic_Setup.exe</code>.</p>
+            <p><code style="overflow-wrap:anywhere; user-select:all;">9849F7686C13B4EA1FF11707A01EAEEB4C32039090F0DDCB966E4E1514464636</code></p>
+            <p>In PowerShell: <code style="overflow-wrap:anywhere; user-select:all;">Get-FileHash .\pyMenvic_Setup.exe -Algorithm SHA256</code></p>
+          </div>
+        </details>
         <p class="small-note installer-note">Need help with setup, access token or office configuration? Contact Menvic.</p>
       </div>
 
