@@ -164,6 +164,8 @@
     "This page is a visual documentation page only. It does not link to the live private app.": "Esta página es solo documentación visual. No enlaza con la app privada en producción.",
     "pyMenvic / pyRevit utilities": "Utilidades pyMenvic / pyRevit",
     "Install pyMenvic": "Instalar pyMenvic",
+    "Verify installer (SHA-256)": "Verificar instalador (SHA-256)",
+    "Compare the checksum below with the SHA-256 of your downloaded": "Compara el código siguiente con el SHA-256 del instalador descargado",
     "Request setup access": "Solicitar acceso de instalación",
     "For Windows environments using Revit and pyRevit.": "Para entornos Windows que usan Revit y pyRevit.",
     "Need help with setup, access token or office configuration? Contact Menvic.": "¿Necesitas ayuda con la instalación, el token de acceso o la configuración de oficina? Contacta con Menvic.",
